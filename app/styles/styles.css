@@ -1,0 +1,121 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.sm2-bar-ui {
+ font-size: 16px;
+}
+.sm2-bar-ui .sm2-main-controls,
+.sm2-bar-ui .sm2-playlist-drawer,
+.sm2-bar-ui bd {
+ background-color: #27ae60;
+}
+.sm2-bar-ui .sm2-inline-texture {
+ background: transparent;
+}
+
+.btn-success {
+	background-color: #27ae60;
+}
+
+.header-container {
+	width: 100%;
+	height: 100px;
+	background-color: #27ae60;
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: baseline;
+}
+
+.header-content {
+	line-height: 100px;
+	color: white;
+	margin: 0 5px;
+}
+
+.header-content-main {
+	font-size: 4em;
+}
+
+.header-content-right {
+	margin-left: auto;
+	font-size: 2em;
+}
+
+.writting-area {
+	width: 100%;
+	height: 500px;
+	margin-top: 20px;
+	display: flex;
+}
+
+.text-area {
+	width: 75%;
+	margin: 0 5px;	
+}
+
+.text-label, .error-label {
+	text-align: center;
+	width: 100%;
+	font-size: 1.7em;
+}
+
+.text-box {
+	width: 100%;
+	height: 450px;
+	padding: 5px;
+	font-size: 1.4em;
+	line-height: 25px;
+	border: 1px solid black;
+	word-wrap: break-word;
+	overflow-y: scroll;
+}
+
+.error-area {
+	width: 25%;
+	margin: 0 5px;
+	text-align: center;
+}
+
+.error-button {
+	margin-top: 20px;
+	width: 80%;
+	height: 50px;
+	line-height: 50px;
+	font-size: 2em;
+}
+
+.error-hide {
+	border: 1px solid black;
+	background-color: #ffffff;
+}
+
+.error-hide:hover {
+	cursor: pointer;
+	background-color: #eeeeee; 
+}
+
+.error-hide:active {
+	background-color: #dddddd;
+}
+
+.error-show {
+	border: 1px solid black;
+	background-color: #27ae60;
+	color: white;
+}
+
+.error-show:hover {
+	cursor: pointer;
+	background-color: #229652; 
+}
+
+.error-show:active {
+	background-color: #1b7942;
+}
+
+.error-helper {
+	margin-top: 20px;
+}
