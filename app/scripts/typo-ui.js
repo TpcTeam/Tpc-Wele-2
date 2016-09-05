@@ -12,6 +12,7 @@ function checkSpell(input) {
   //input = input.trim();
 
   var words = [];
+	var errors = [];
 	var errorCount = 0;
 
   var l = -1,
@@ -50,8 +51,12 @@ function checkSpell(input) {
       if (dictionary.check(words[i])) {
         suggestWords.push(words[i]);
       } else {
-        suggestWords.push(words[i].fontColor("red"));
-        suggestWords.push(dictionary.suggest(words[i]).italics());
+        suggestWords.push("<span style='color:red'>" + words[i] + "</span>");
+				errors.push({
+					first : words[i],
+					second : dictionary.suggest(words[i])
+				});
+        //suggestWords.push(dictionary.suggest(words[i]).italics());
 				errorCount++;
       };
     };
@@ -60,7 +65,8 @@ function checkSpell(input) {
   //console.log(suggestWords);
   return {
 		suggestWords : suggestWords.join(""),
-		errorCount : errorCount
+		errorCount : errorCount,
+		errors : errors
 	}
 };
 
@@ -114,7 +120,7 @@ function fixSpell(input) {
   };
   //console.log(suggestWords);
   return {
-		suggestWords : suggestWords.join(""),
+		suggestWords : suggestWords
 		//errorCount : errorCount
 	}
 };

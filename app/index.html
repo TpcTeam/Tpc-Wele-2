@@ -20,9 +20,13 @@
 			<div class="text-box" contenteditable="true" spellcheck="false"></div>
 		</div>
 		<div class="error-area">
-			<h3 class="error-label">Errors founded: <span class="error-counter">0</span></h3>
+			<h3 class="error-label">Errors found: <span class="error-counter">0</span></h3>
 			<button type="button" class="error-button show-hide-error error-hide">Show Errors</button>
 			<p class="error-helper">Click 'Show Errors' to show your errors</p>
+			<div class="suggest-area" style="display:none">
+				<button type="button" class="error-button suggest-on-off suggest-off">Suggest Me</button>
+				<div class="suggest-box"></div>
+			</div>
 		</div>
 	</div>
 
@@ -162,9 +166,25 @@
 		var errorBtn = document.querySelector('.show-hide-error');
 		var errorHelper = document.querySelector('.error-helper');
 		var errorCounter = document.querySelector('.error-counter');
+		var suggestArea = document.querySelector('.suggest-area');
+		var suggestBox = document.querySelector('.suggest-box');
+		var suggestBtn = document.querySelector('.suggest-on-off');
+		var results;
 		
-		textBox.addEventListener('input', function(){
-			errorCounter.innerText = checkSpell(textBox.innerText).errorCount;
+		suggestBtn.addEventListener('click', function(){
+			if (this.classList.contains('suggest-off')) {
+				this.classList.remove('suggest-off');
+				this.classList.add('suggest-on');
+				var suggestText = "";
+				for (var i = 0; i < results.errorCount; i++) {
+					suggestText += "<span style='color:red'>" + results.errors[i].first + "</span> -> " + results.errors[i].second + "<br/>"; 
+				}
+				suggestBox.innerHTML = suggestText;
+			} else {
+				this.classList.remove('suggest-on');
+				this.classList.add('suggest-off');
+				suggestBox.innerHTML = "";
+			}
 		});
 		
 		errorBtn.addEventListener('click', function(){
@@ -172,10 +192,13 @@
 				this.classList.remove('error-hide');
 				this.classList.add('error-show');
 				this.innerHTML = 'Hide Errors';
-				errorHelper.innerText = 'Click \'Hide Errors\' to edit your writting';
+				errorHelper.innerText = 'Click \'Hide Errors\' to edit your writting\nStuck? Click \'Suggest Me\' to see the suggested corresponding words';
 				textBox.contentEditable = false;
 				textBoxText = textBox.innerText;
-				textBox.innerHTML = checkSpell(textBoxText).suggestWords;
+				results = checkSpell(textBoxText);
+				textBox.innerHTML = results.suggestWords;
+				errorCounter.innerHTML = results.errorCount;
+				suggestArea.style.display = "block";
 			}	else {
 				this.classList.remove('error-show');
 				this.classList.add('error-hide');
@@ -183,6 +206,13 @@
 				errorHelper.innerText = 'Click \'Show Errors\' to show your errors';
 				textBox.contentEditable = true;
 				textBox.innerText = textBoxText;
+				suggestArea.style.display = "none";
+				if (suggestBtn.classList.contains('suggest-on')) {
+					suggestBtn.classList.remove('suggest-on');
+					suggestBtn.classList.add('suggest-off');
+					suggestBox.innerHTML = "";
+				}
+				results = {};
 			}
 		});
 

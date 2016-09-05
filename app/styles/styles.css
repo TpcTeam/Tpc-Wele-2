@@ -46,25 +46,25 @@
 
 .writting-area {
 	width: 100%;
-	height: 500px;
-	margin-top: 20px;
+	height: 520px;
+	margin-top: 5px;
 	display: flex;
 }
 
 .text-area {
-	width: 75%;
+	width: 70%;
 	margin: 0 5px;	
 }
 
 .text-label, .error-label {
 	text-align: center;
 	width: 100%;
-	font-size: 1.7em;
+	font-size: 1.5em;
 }
 
 .text-box {
 	width: 100%;
-	height: 450px;
+	height: 480px;
 	padding: 5px;
 	font-size: 1.4em;
 	line-height: 25px;
@@ -74,48 +74,60 @@
 }
 
 .error-area {
-	width: 25%;
+	width: 30%;
 	margin: 0 5px;
 	text-align: center;
 }
 
 .error-button {
-	margin-top: 20px;
-	width: 80%;
-	height: 50px;
-	line-height: 50px;
-	font-size: 2em;
+	margin-top: 10px;
+	width: 90%;
+	height: 40px;
+	line-height: 40px;
+	font-size: 1.8em;
 }
 
-.error-hide {
+.error-hide, .suggest-off {
 	border: 1px solid black;
 	background-color: #ffffff;
 }
 
-.error-hide:hover {
+.error-hide:hover, .suggest-off:hover {
 	cursor: pointer;
 	background-color: #eeeeee; 
 }
 
-.error-hide:active {
+.error-hide:active, .suggest-off:active {
 	background-color: #dddddd;
 }
 
-.error-show {
+.error-show, .suggest-on {
 	border: 1px solid black;
 	background-color: #27ae60;
 	color: white;
 }
 
-.error-show:hover {
+.error-show:hover, .suggest-on:hover {
 	cursor: pointer;
 	background-color: #229652; 
 }
 
-.error-show:active {
+.error-show:active, .suggest-on:active {
 	background-color: #1b7942;
 }
 
 .error-helper {
-	margin-top: 20px;
+	margin-top: 10px;
+}
+
+.suggest-box {
+	margin: 10px auto;
+	width: 90%;
+	height: 300px;
+	border: 1px solid black;
+	font-size: 1.2em;
+	line-height: 20px;
+	border: 1px solid black;
+	word-wrap: break-word;
+	overflow-y: scroll;
 }
