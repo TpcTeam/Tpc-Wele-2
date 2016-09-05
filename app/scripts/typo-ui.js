@@ -106,8 +106,8 @@ function fixSpell(input) {
       if (dictionary.check(words[i])) {
         suggestWords.push(words[i]);
       } else {
-        suggestWords.push(dictionary.suggest(words[i]);
-				errorCount++;
+        suggestWords.push(dictionary.suggest(words[i]));
+			//	errorCount++;
       };
     };
     //console.log(suggestWords[i]);
@@ -115,6 +115,6 @@ function fixSpell(input) {
   //console.log(suggestWords);
   return {
 		suggestWords : suggestWords.join(""),
-		errorCount : errorCount
+		//errorCount : errorCount
 	}
 };
