@@ -50,7 +50,8 @@ function checkSpell(input) {
       if (dictionary.check(words[i])) {
         suggestWords.push(words[i]);
       } else {
-        suggestWords.push(words[i].fontcolor("red"));
+        suggestWords.push(words[i].fontColor("red"));
+        suggestWords.push(dictionary.suggest(words[i]).italics());
 				errorCount++;
       };
     };
